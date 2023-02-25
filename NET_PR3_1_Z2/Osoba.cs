@@ -16,7 +16,7 @@ internal class Osoba : INotifyPropertyChanged
 	{
 		["Imię"] = new string[] { "ImięNazwisko" },
 		["Nazwisko"] = new string[] { "ImięNazwisko" },
-		["ImięNazwisko"] = new string[] { "FormatWitaj" },
+		["ImięNazwisko"] = new string[] { "FormatWitaj" }
 	};
 	void NotyfikujZmianę([CallerMemberName] string? nazwaWłaściwości = null)
 	{
@@ -26,10 +26,7 @@ internal class Osoba : INotifyPropertyChanged
 			);
 		if (powiązaneWłaściwości.ContainsKey(nazwaWłaściwości))
 			foreach (string powiązanaWłaściwość in powiązaneWłaściwości[nazwaWłaściwości])
-				PropertyChanged?.Invoke(
-					this,
-					new PropertyChangedEventArgs(powiązanaWłaściwość)
-					);
+				NotyfikujZmianę(powiązanaWłaściwość);
 	}
 
 	private string imię;
