@@ -19,10 +19,15 @@ namespace NET_PR3_1_Z2;
 /// </summary>
 public partial class WidokOsoby : Window
 {
-	Osoba naszaOsoba = new Osoba();
-	public WidokOsoby()
+	//Osoba naszaOsoba = new Osoba();
+	public WidokOsoby(Osoba osoba)
 	{
-		DataContext = naszaOsoba;
+		DataContext = osoba;
 		InitializeComponent();
+	}
+
+	private void OK(object sender, RoutedEventArgs e)
+	{
+		Close();
 	}
 }

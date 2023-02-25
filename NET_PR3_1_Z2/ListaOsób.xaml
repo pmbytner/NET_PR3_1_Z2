@@ -22,28 +22,28 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <ListBox
+            Name="Lista"
             Grid.ColumnSpan="3"
             ItemsSource="{Binding Path=Osoby}"
             >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock
-                        Text="{Binding ImięNazwisko}"
-                        />
+                    <TextBlock Text="{Binding SkrótSzczegółów}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <Button
-            Grid.Row="1"
+            Grid.Row="1" Click="Usuń"
             >Usuń</Button>
         <Button
             Grid.Column="1"
             Grid.Row="1"
+            Click="Edytuj"
             >Edytuj</Button>
         <Button
             Grid.Column="2"
-            Grid.Row="1"
+            Grid.Row="1" Click="Dodaj"
             >Dodaj</Button>
     </Grid>
 </Window>

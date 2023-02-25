@@ -23,6 +23,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Label>Imię:</Label>
@@ -68,5 +69,9 @@
             Grid.Row="4"
             Text="{Binding Wiek}"
             />
+        <Button
+            Grid.ColumnSpan="2"
+            Grid.Row="5" Click="OK"
+            >OK</Button>
     </Grid>
 </Window>
