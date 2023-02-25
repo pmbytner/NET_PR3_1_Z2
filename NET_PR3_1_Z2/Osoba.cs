@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NET_PR3_1_Z2;
-internal class Osoba : INotifyPropertyChanged
+public class Osoba : INotifyPropertyChanged
 {
 	public event PropertyChangedEventHandler? PropertyChanged;
 	private static Dictionary<string, ICollection<string>> powiązaneWłaściwości
