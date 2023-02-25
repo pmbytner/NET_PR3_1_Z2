@@ -16,7 +16,9 @@ internal class Osoba : INotifyPropertyChanged
 	{
 		["Imię"] = new string[] { "ImięNazwisko" },
 		["Nazwisko"] = new string[] { "ImięNazwisko" },
-		["ImięNazwisko"] = new string[] { "FormatWitaj", "Imię" }
+		["ImięNazwisko"] = new string[] { "FormatWitaj" },
+		["DataUrodzenia"] = new string[] { "Wiek" },
+		["DataŚmierci"] = new string[] { "Wiek" }
 	};
 	void NotyfikujZmianę(
 		[CallerMemberName] string? nazwaWłaściwości = null,
@@ -36,8 +38,14 @@ internal class Osoba : INotifyPropertyChanged
 					NotyfikujZmianę(powiązanaWłaściwość, jużZrobione);
 	}
 
-	private string imię;
-	private string nazwisko;
+	private string
+		imię,
+		nazwisko
+		;
+	private DateTime?
+		dataUrodzenia = null,
+		dataŚmierci = null
+		;
 
 	public string Imię {
 		get => imię;
@@ -56,6 +64,38 @@ internal class Osoba : INotifyPropertyChanged
 			//NotyfikujZmianę("ImięNazwisko");
 		}
 	}
+	public DateTime? DataUrodzenia {
+		get => dataUrodzenia;
+		set
+		{
+			dataUrodzenia = value;
+			NotyfikujZmianę();
+		}
+	}
+	public DateTime? DataŚmierci {
+		get => dataŚmierci;
+		set
+		{
+			dataŚmierci = value;
+			NotyfikujZmianę();
+		}
+	}
+
 	public string ImięNazwisko => $"{imię} {nazwisko}";
 	public string FormatWitaj => $"Witaj, {ImięNazwisko}";
+	public ushort? Wiek
+	{
+		get
+		{
+			if (dataUrodzenia == null)
+				return null;
+			DateTime? koniec;
+			if (dataŚmierci == null)
+				koniec = DateTime.Now;
+			else
+				koniec = dataŚmierci;
+			TimeSpan różnica = (TimeSpan)(koniec - dataUrodzenia);
+			return (ushort)Math.Floor(różnica.Days / 365.25);
+		}
+	}
 }

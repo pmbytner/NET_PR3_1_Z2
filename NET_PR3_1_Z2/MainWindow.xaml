@@ -50,29 +50,31 @@
         <TextBlock
             Grid.Row="2"
             Grid.ColumnSpan="2"
-            Text="{Binding Path=ImięNazwisko}"
+            Text="{Binding FormatWitaj}"
             />
         <Label
             Grid.Row="3"
-            >Imię:</Label>
-        <TextBlock
-            Grid.Row="3"
+            >Data urodzenia:</Label>
+        <DatePicker
             Grid.Column="1"
-            Text="{Binding
-                Path=Imię,
-                UpdateSourceTrigger=PropertyChanged
-            }"
+            Grid.Row="3"
+            SelectedDate="{Binding DataUrodzenia}"
             />
         <Label
             Grid.Row="4"
-            >Nazwisko:</Label>
-        <TextBlock
+            >Data śmierci:</Label>
+        <DatePicker
             Grid.Column="1"
             Grid.Row="4"
-            Text="{Binding
-                Path=Nazwisko,
-                UpdateSourceTrigger=PropertyChanged
-            }"
+            SelectedDate="{Binding DataŚmierci}"
+            />
+        <Label
+            Grid.Row="5"
+            >Wiek:</Label>
+        <TextBlock
+            Grid.Column="1"
+            Grid.Row="5"
+            Text="{Binding Wiek}"
             />
     </Grid>
 </Window>
