@@ -16,17 +16,24 @@ internal class Osoba : INotifyPropertyChanged
 	{
 		["Imię"] = new string[] { "ImięNazwisko" },
 		["Nazwisko"] = new string[] { "ImięNazwisko" },
-		["ImięNazwisko"] = new string[] { "FormatWitaj" }
+		["ImięNazwisko"] = new string[] { "FormatWitaj", "Imię" }
 	};
-	void NotyfikujZmianę([CallerMemberName] string? nazwaWłaściwości = null)
+	void NotyfikujZmianę(
+		[CallerMemberName] string? nazwaWłaściwości = null,
+		HashSet<string> jużZrobione = null
+		)
 	{
+		if (jużZrobione == null)
+			jużZrobione = new();
 		PropertyChanged?.Invoke(
 			this,
 			new PropertyChangedEventArgs(nazwaWłaściwości)
 			);
+		jużZrobione.Add(nazwaWłaściwości);
 		if (powiązaneWłaściwości.ContainsKey(nazwaWłaściwości))
 			foreach (string powiązanaWłaściwość in powiązaneWłaściwości[nazwaWłaściwości])
-				NotyfikujZmianę(powiązanaWłaściwość);
+				if(jużZrobione.Contains(powiązanaWłaściwość) == false)
+					NotyfikujZmianę(powiązanaWłaściwość, jużZrobione);
 	}
 
 	private string imię;
