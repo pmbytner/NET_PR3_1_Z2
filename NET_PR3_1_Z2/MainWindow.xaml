@@ -36,61 +36,42 @@
                 UpdateSourceTrigger=PropertyChanged
             }"
             />
-        <Button
+        <Label
+            Grid.Row="1"
+            >Nazwisko:</Label>
+        <TextBox
             Grid.Column="1"
             Grid.Row="1"
-            >OK</Button>
+            Text="{Binding
+                Path=Nazwisko,
+                UpdateSourceTrigger=PropertyChanged
+            }"
+            />
+        <TextBlock
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Text="{Binding Path=ImięNazwisko}"
+            />
+        <Label
+            Grid.Row="3"
+            >Imię:</Label>
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="1"
+            Text="{Binding
+                Path=Imię,
+                UpdateSourceTrigger=PropertyChanged
+            }"
+            />
+        <Label
+            Grid.Row="4"
+            >Nazwisko:</Label>
         <TextBlock
             Grid.Column="1"
-            Grid.Row="2"
-            Text="{Binding Path=Imię}"
-            />
-        <Label
-            Grid.Row="3"
-            >OneWay:</Label>
-        <TextBox
-            Grid.Row="3"
-            Grid.Column="1"
-            Text="{Binding
-                Path=Imię,
-                UpdateSourceTrigger=PropertyChanged,
-                Mode=OneWay
-            }"
-            />
-        <Label
             Grid.Row="4"
-            >OneTime:</Label>
-        <TextBox
-            Grid.Row="4"
-            Grid.Column="1"
             Text="{Binding
-                Path=Imię,
-                UpdateSourceTrigger=PropertyChanged,
-                Mode=OneTime
-            }"
-            />
-        <Label
-            Grid.Row="5"
-            >OneWayToSource:</Label>
-        <TextBox
-            Grid.Row="5"
-            Grid.Column="1"
-            Text="{Binding
-                Path=Imię,
-                UpdateSourceTrigger=PropertyChanged,
-                Mode=OneWayToSource
-            }"
-            />
-        <Label
-            Grid.Row="6"
-            >TwoWay:</Label>
-        <TextBox
-            Grid.Row="6"
-            Grid.Column="1"
-            Text="{Binding
-                Path=Imię,
-                UpdateSourceTrigger=PropertyChanged,
-                Mode=TwoWay
+                Path=Nazwisko,
+                UpdateSourceTrigger=PropertyChanged
             }"
             />
     </Grid>
