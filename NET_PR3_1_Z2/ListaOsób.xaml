@@ -16,9 +16,13 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <ListBox
@@ -34,16 +38,30 @@
         </ListBox>
 
         <Button
-            Grid.Row="1" Click="Usuń"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            Click="Usuń"
             >Usuń</Button>
         <Button
-            Grid.Column="1"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
             Grid.Row="1"
             Click="Edytuj"
             >Edytuj</Button>
         <Button
-            Grid.Column="2"
-            Grid.Row="1" Click="Dodaj"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            Click="Dodaj"
             >Dodaj</Button>
+        <Button
+            Grid.ColumnSpan="3"
+            Grid.Row="2" Click="Importuj"
+            >Import</Button>
+        <Button
+            Grid.Column="3"
+            Grid.ColumnSpan="3"
+            Grid.Row="2" Click="Eksportuj"
+            >Eksport</Button>
     </Grid>
 </Window>
